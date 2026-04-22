@@ -1,18 +1,20 @@
 import { useState } from "react";
 import Home from "./components/home";
-import Game from "./components/game";
+
+import FetchOpImgs from "./components/fetchingOpImgs";
 
 function App() {
   const [gameSettings, setGameSettings] = useState({
     imgType: "",
     diff: "",
   });
+
   return (
     <>
       {!gameSettings.imgType ? (
         <Home gameSettings={gameSettings} setGameSettings={setGameSettings} />
       ) : (
-        <Game gameSettings={gameSettings} />
+        <FetchOpImgs gameSettings={gameSettings} />
       )}
     </>
   );
