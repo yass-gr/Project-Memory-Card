@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 //note: api fetched is a graphql free One piece api from  https://onepieceql.up.railway.app/
 
@@ -67,13 +67,13 @@ async function fetchData(type, diff, setItems, setIsError) {
     let itemsCount = 0;
     switch (diff) {
       case "easy":
-        itemsCount = 10;
+        itemsCount = 9;
         break;
       case "medium":
-        itemsCount = 20;
+        itemsCount = 12;
         break;
       case "hard":
-        itemsCount = 30;
+        itemsCount = 20;
         break;
     }
     let indexes = new Set();
@@ -83,7 +83,7 @@ async function fetchData(type, diff, setItems, setIsError) {
       while (indexes.has(randomItemIndex)) {
         randomItemIndex = getRandomNumber(0, data.length - 1);
       }
-      items.push(data[randomItemIndex]);
+      items.push({ ...data[randomItemIndex], id: i + 1 });
       indexes.add(randomItemIndex);
     }
     setItems(items);
@@ -93,34 +93,10 @@ async function fetchData(type, diff, setItems, setIsError) {
   }
 }
 
-/*{!isError
-          ? items.length > 0
-            ? "items loaded"
-            : "loading items..."
-          : "Fetch failed"}
-*/
-
-export default function FetcherOpAPI({ gameSettings }) {
-  const [items, setItems] = useState([]);
-  const [isError, setIsError] = useState(false);
+export default function FetcherOpAPI({ gameSettings, setItems, setIsError }) {
   useEffect(() => {
     fetchData(gameSettings.imgType, gameSettings.diff, setItems, setIsError);
-  }, [gameSettings]);
-  console.log(items);
-  return (
-    <>
-      <h1>
-        {items.length > 0
-          ? items.map((i) => {
-              return (
-                <div>
-                  <p>{i.englishName}</p>
-                  <img src={i.avatarSrc} alt="" />
-                </div>
-              );
-            })
-          : "loading items..."}
-      </h1>
-    </>
-  );
+  }, [gameSettings.imgType, gameSettings.diff]);
+
+  return;
 }
