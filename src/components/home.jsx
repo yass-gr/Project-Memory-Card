@@ -1,6 +1,6 @@
 export default function Home({ gameSettings, setGameSettings }) {
   return (
-    <>
+    <div className="h-dvh  bg-[url(/images/homeBg.png)] bg-cover">
       <form
         action=""
         onSubmit={(e) => {
@@ -48,6 +48,6 @@ export default function Home({ gameSettings, setGameSettings }) {
           Start game
         </button>
       </form>
-    </>
+    </div>
   );
 }
