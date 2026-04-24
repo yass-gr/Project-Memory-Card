@@ -2,6 +2,11 @@
 * {
   box-sizing: border-box;
 }
-body {
-  height: 100vh;
+@theme {
+  --font-pirate: "pirate", sans-serif;
+}
+
+@font-face {
+  font-family: "pirate";
+  src: url("/fonts/Pirate Kids.otf");
 }
