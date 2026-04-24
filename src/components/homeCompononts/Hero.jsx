@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <section
       ref={hero}
-      className="p-5  contrast-120 brightness-95 overflow-hidden h-70 relative w-100 "
+      className="p-5  contrast-120 brightness-95 overflow-hidden h-70 relative w-100 flex"
     >
       <img
         src="/images/One-Piece-Logo.png"
@@ -50,18 +50,18 @@ const Hero = () => {
       <img
         src="/images/board.png"
         alt=""
-        className="title -rotate-2 pt-11 brightness-80 "
+        className="title -rotate-2 pt-11 brightness-80 h-55"
       />
 
       <img
-        className=" title absolute w-72 top-21 left-16.5 -rotate-2"
+        className=" title absolute w-72 top-23 left-17.5 -rotate-2 "
         src="/images/title.png"
         alt=""
       />
 
       <img
         id="badge"
-        className="w-77 absolute left-13 top-40"
+        className="w-77 absolute left-14 top-42"
         src="/images/badge.png"
         alt=""
       />
@@ -70,7 +70,7 @@ const Hero = () => {
         id="hat"
         src="/images/hat.png"
         alt=""
-        className="absolute w-14 -top-18 right-3 z-1 rotate-90"
+        className="absolute w-14 -top-18 right-2 z-1 rotate-90"
         style={{ filter: "drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.7))" }}
       />
     </section>
