@@ -11,6 +11,7 @@ const Hero = () => {
       tl.from(".title", {
         y: -100,
         ease: "back.out(2)",
+        duration: 0.5,
       });
 
       tl.from("#badge", {
@@ -27,11 +28,10 @@ const Hero = () => {
           y: 145,
           x: -20,
           scale: 1.7,
-          rotate: -5,
           ease: "expoScale(0.5,7,power1.inOut)",
-          duration: 0.4,
+          duration: 0.3,
         },
-        "-=0.5",
+        "-=0.6",
       );
     },
     { scope: hero },
@@ -40,28 +40,28 @@ const Hero = () => {
   return (
     <section
       ref={hero}
-      className="p-5  contrast-120 brightness-95 overflow-hidden h-70 relative w-100 flex"
+      className="  contrast-120 brightness-95  h-55 relative w-78 flex"
     >
       <img
         src="/images/One-Piece-Logo.png"
         alt=""
-        className="title w-42 absolute z-10 left-28 top-4.5"
+        className="title w-45/100 absolute z-10 left-30/100 top-3/100 "
       />
       <img
         src="/images/board.png"
         alt=""
-        className="title -rotate-2 pt-11 brightness-80 h-55"
+        className="title -rotate-2  brightness-80 h-55 object-contain"
       />
 
       <img
-        className=" title absolute w-72 top-23 left-17.5 -rotate-2 "
+        className=" title absolute w-80/100 top-30/100 left-13/100 -rotate-2 "
         src="/images/title.png"
         alt=""
       />
 
       <img
         id="badge"
-        className="w-77 absolute left-14 top-42"
+        className="w-80/100 absolute left-12/100 top-60/100 "
         src="/images/badge.png"
         alt=""
       />
@@ -70,7 +70,7 @@ const Hero = () => {
         id="hat"
         src="/images/hat.png"
         alt=""
-        className="absolute w-14 -top-18 right-2 z-1 rotate-90"
+        className="absolute w-15/100 -top-42/100 -right-3 z-1 "
         style={{ filter: "drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.7))" }}
       />
     </section>

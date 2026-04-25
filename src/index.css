@@ -10,3 +10,8 @@
   font-family: "pirate";
   src: url("/fonts/Pirate Kids.otf");
 }
+
+:root {
+  --leftt: 10px;
+  --op: 0;
+}
