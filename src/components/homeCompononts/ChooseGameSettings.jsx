@@ -1,7 +1,5 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { CustomEase } from "gsap/CustomEase";
 
 const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
   useGSAP(() => {
@@ -50,6 +48,7 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
         "--leftt": 198,
         duration: 1.7,
         ease: "none",
+        delay: 6,
       },
       "-=0.4",
     );
@@ -57,7 +56,6 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
       ":root",
       {
         "--op": 0,
-        delay: 5,
       },
       "-=0.2",
     );
@@ -79,7 +77,7 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
     >
       <button
         id="startGame"
-        className=" active:scale-95 inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
+        className="cursor-pointer active:scale-95 inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
       >
         <img src="/images/btn.png" alt="" />
       </button>

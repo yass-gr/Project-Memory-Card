@@ -1,8 +1,7 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import { CustomEase } from "gsap/CustomEase";
-gsap.registerPlugin(CustomEase);
+
 const Hero = () => {
   const hero = useRef();
   useGSAP(
