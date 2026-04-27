@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 
 const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
   useGSAP(() => {
@@ -59,28 +60,115 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
       },
       "-=0.2",
     );
-  });
+  }, []);
 
   return (
-    <form
-      className=""
-      action=""
-      onSubmit={(e) => {
-        e.preventDefault();
-        const fd = new FormData(e.currentTarget);
-        setGameSettings({
-          ...gameSettings,
-          imgType: fd.get("selectMode"),
-          diff: fd.get("selectDiff"),
-        });
-      }}
-    >
+    <div className="w-78 flex flex-col items-center" action="">
       <button
+        onClick={() =>
+          setGameSettings((d) => ({ ...d, imgType: "characters" }))
+        }
+        onMouseEnter={() => {
+          gsap
+            .to("#startGame", {
+              paused: true,
+              scale: 1.05,
+              duration: 0.2,
+            })
+            .play();
+        }}
+        onMouseLeave={() => {
+          gsap
+            .to("#startGame", {
+              paused: true,
+              scale: 1.0,
+              duration: 0.2,
+            })
+            .play();
+        }}
+        onMouseDown={() => {
+          gsap
+            .to("#startGame", {
+              paused: true,
+              scale: 0.8,
+            })
+            .play();
+        }}
+        onMouseUp={() => {
+          gsap
+            .to("#startGame", {
+              paused: true,
+              scale: 1.0,
+            })
+            .play();
+        }}
         id="startGame"
-        className="cursor-pointer active:scale-95 inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
+        className=" md:mt-5 cursor-pointer  inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
       >
         <img src="/images/btn.png" alt="" />
       </button>
+
+      <img src="/images/diffBadge.png" alt="" className="w-55 md:mt-10" />
+      <div className="w-1/1 grid grid-cols-3">
+        <button
+          onClick={() => {
+            setGameSettings((d) => ({ ...d, diff: "easy" }));
+          }}
+        >
+          <img
+            src="/images/easy.png"
+            alt=""
+            className={
+              gameSettings.diff === "easy"
+                ? "brightness-125 !hover:brightness-125 cursor-pointer  transition-all duration-200 scale-110 active:scale-99"
+                : "cursor-pointer brightness-75 hover:brightness-100 transition-all duration-200 hover:scale-105 active:scale-99"
+            }
+          />
+        </button>
+        <button
+          onClick={() => {
+            setGameSettings((d) => ({ ...d, diff: "medium" }));
+          }}
+        >
+          <img
+            src="/images/midd.png"
+            alt=""
+            className={
+              gameSettings.diff === "medium"
+                ? "brightness-125 !hover:brightness-125 cursor-pointer  transition-all duration-200 scale-110 active:scale-99"
+                : "cursor-pointer brightness-75 hover:brightness-100 transition-all duration-200 hover:scale-105 active:scale-99"
+            }
+          />
+        </button>
+        <button
+          onClick={() => {
+            setGameSettings((d) => ({ ...d, diff: "hard" }));
+          }}
+        >
+          <img
+            src="/images/hard.png"
+            alt=""
+            className={
+              gameSettings.diff === "hard"
+                ? "brightness-125 !hover:brightness-125 cursor-pointer  transition-all duration-200 scale-110 active:scale-99"
+                : "cursor-pointer brightness-75 scale-95 hover:brightness-100 transition-all duration-200 hover:scale-105 active:scale-99"
+            }
+          />
+        </button>
+      </div>
+
+      <div className="w-1/1 grid grid-cols-2 gap-2 place-content-center mt-2 md:mt-5">
+        <img
+          src="/images/settings.png"
+          alt=""
+          className="cursor-pointer hover:brightness-115 transition-all duration-200 active:scale-99"
+        />
+        <img
+          src="/images/highlights.png"
+          alt=""
+          className="cursor-pointer scale-104 pt-1 hover:brightness-115 transition-all duration-200 active:scale-99"
+        />
+      </div>
 
       {/* <h2>chose img type:</h2>
       <input
@@ -116,7 +204,7 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
         {" "}
         Start game
       </button>  */}
-    </form>
+    </div>
   );
 };
 

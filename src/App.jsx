@@ -6,7 +6,7 @@ import Game from "./components/game";
 function App() {
   const [gameSettings, setGameSettings] = useState({
     imgType: "",
-    diff: "",
+    diff: "easy",
   });
 
   return (

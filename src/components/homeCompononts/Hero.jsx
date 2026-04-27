@@ -21,26 +21,21 @@ const Hero = () => {
         ease: "elastic.out(1)",
       });
 
-      tl.to(
-        "#hat",
-        {
-          y: 145,
-          x: -20,
-          scale: 1.7,
-          ease: "expoScale(0.5,7,power1.inOut)",
-          duration: 0.3,
-        },
-        "-=0.6",
-      );
+      (tl.to("#hat", {
+        y: 145,
+        x: -20,
+        scale: 1.7,
+        ease: "expoScale(0.5,7,power1.inOut)",
+        duration: 0.3,
+      }),
+        "-=1");
     },
+    [],
     { scope: hero },
   );
 
   return (
-    <section
-      ref={hero}
-      className="  contrast-120 brightness-95  h-55 relative w-78 flex"
-    >
+    <section ref={hero} className="    h-55 relative w-78 flex">
       <img
         src="/images/One-Piece-Logo.png"
         alt=""
