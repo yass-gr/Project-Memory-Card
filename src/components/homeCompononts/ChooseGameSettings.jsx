@@ -2,7 +2,11 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useState } from "react";
 
-const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
+const ChooseGameSettings = ({
+  gameSettings,
+  setGameSettings,
+  setSettingsModalStatus,
+}) => {
   useGSAP(() => {
     const tl1 = gsap.timeline({ repeat: -1 });
     tl1.to("#startGame", {
@@ -63,7 +67,7 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
   }, []);
 
   return (
-    <div className="w-78 flex flex-col items-center" action="">
+    <div className="w-78 flex flex-col items-center">
       <button
         onClick={() =>
           setGameSettings((d) => ({ ...d, imgType: "characters" }))
@@ -103,12 +107,12 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
             .play();
         }}
         id="startGame"
-        className=" md:mt-5 cursor-pointer  inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
+        className=" mt-5  cursor-pointer  inline-block relative w-60 after:z-10 after:left-[var(--leftt)] after:opacity-[var(--op)]  after:absolute after:top-3 after:h-65/100 after:-skew-5 after:w-7 after:bg-linear-to-r after:from-transparent after:via-yellow-100 after:to-transparent after:blur-sm after:mix-blend-screen "
       >
         <img src="/images/btn.png" alt="" />
       </button>
 
-      <img src="/images/diffBadge.png" alt="" className="w-55 md:mt-10" />
+      <img src="/images/diffBadge.png" alt="" className="w-55 mt-10" />
       <div className="w-1/1 grid grid-cols-3">
         <button
           onClick={() => {
@@ -157,12 +161,16 @@ const ChooseGameSettings = ({ gameSettings, setGameSettings }) => {
         </button>
       </div>
 
-      <div className="w-1/1 grid grid-cols-2 gap-2 place-content-center mt-2 md:mt-5">
-        <img
-          src="/images/settings.png"
-          alt=""
+      <div className="w-1/1 grid grid-cols-2 gap-2 place-content-center mt-2 mt-7">
+        <button
+          onClick={() => {
+            setSettingsModalStatus(true);
+          }}
           className="cursor-pointer hover:brightness-115 transition-all duration-200 active:scale-99"
-        />
+        >
+          {" "}
+          <img src="/images/settings.png" alt="" />
+        </button>
         <img
           src="/images/highlights.png"
           alt=""

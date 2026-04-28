@@ -28,7 +28,7 @@ const Hero = () => {
         ease: "expoScale(0.5,7,power1.inOut)",
         duration: 0.3,
       }),
-        "-=1");
+        "-= 1");
     },
     [],
     { scope: hero },
